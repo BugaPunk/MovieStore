@@ -1,4 +1,4 @@
-<header class="text-gray-600 body-font bg-gray-100/35">
+<header class="text-gray-600 body-font bg-gray-100">
     <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <nav class="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
             <?php
