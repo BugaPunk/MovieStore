@@ -77,7 +77,7 @@
                         </label>
                     </div>
 
-                    <form action="POST" class="mt-8 grid grid-cols-6 gap-6" name="registration">
+                    <form action="POST" class="mt-8 grid grid-cols-6 gap-6" action="register.php" name="registration">
                         <div class="col-span-6 sm:col-span-3">
                             <label for="FirstName" class="block text-sm font-medium text-gray-700">
                                 Nombre Completo
@@ -111,7 +111,7 @@
                         <div class="col-span-6 sm:col-span-3">
                             <label for="Password" class="block text-sm font-medium text-gray-700"> Contraseña </label>
 
-                            <input type="password" name="pwd"required
+                            <input type="password" name="pwd" required
                                 class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm" />
                         </div>
 
@@ -158,7 +158,7 @@
                                 Codigo Postal
                             </label>
 
-                            <input type="text" name="zip"required
+                            <input type="text" name="zip" required
                                 class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm" />
                         </div>
 
@@ -171,16 +171,19 @@
                         </div>
 
                         <div class="col-span-6">
-                            <label for="NroCard" class="block text-sm font-medium text-gray-700"> Numero de Tarjeta </label>
+                            <label for="NroCard" class="block text-sm font-medium text-gray-700"> Numero de Tarjeta
+                            </label>
 
                             <input type="text" name="cardNum" required
                                 class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm" />
                         </div>
 
                         <div class="col-span-6">
-                            <label for="cardName" class="block text-sm font-medium text-gray-700">Nombre de la Tarjeta</label>
+                            <label for="cardName" class="block text-sm font-medium text-gray-700">Nombre de la
+                                Tarjeta</label>
 
-                            <input type="text" name="nameOnCard" required='^[\d]+' title="El nombre no puede contener números"
+                            <input type="text" name="nameOnCard" required='^[\d]+'
+                                title="El nombre no puede contener números"
                                 class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm" />
                         </div>
 
@@ -201,14 +204,18 @@
                         </div>
 
                         <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
+                            <p class="red">
+                                <?php if (!empty($signupErrorMsg))
+                                    echo $signupErrorMsg; ?>
+                            </p>
                             <button
-                                class="inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500">
-                                Create an account
+                                class="inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500"  type="submit" name="submit">
+                                Crear Cuenta
                             </button>
 
                             <p class="mt-4 text-sm text-gray-500 sm:mt-0">
-                                Already have an account?
-                                <a href="#" class="text-gray-700 underline">Log in</a>.
+                                ¿Ya tiene una cuenta?
+                                <a href="Login.php" class="text-gray-700 underline">Ingrese</a>.
                             </p>
                         </div>
                     </form>
@@ -216,7 +223,4 @@
             </main>
         </div>
     </section>
-    <?php
-    include 'Footer.php';
-    ?>
 </body>
