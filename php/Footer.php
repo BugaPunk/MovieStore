@@ -1,5 +1,5 @@
 <footer class="text-gray-600 body-font">
-    <div class="container px-5 py-24 mx-auto bg-gray-100/40">
+    <div class="container px-5 py-24 mx-auto bg-gray-100/25">
         <div class="flex flex-wrap md:text-left text-center order-first">
             <div class="lg:w-1/4 md:w-1/2 w-full px-4">
                 <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
@@ -53,24 +53,16 @@
                 </nav>
             </div>
             <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-                <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">SUBSCRIBE</h2>
+                <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3 uppercase">Buscador</h2>
                 <div
                     class="flex xl:flex-nowrap md:flex-nowrap lg:flex-wrap flex-wrap justify-center items-end md:justify-start">
                     <div class="relative w-40 sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 mr-2">
-                        <label for="Search" class="sr-only"> Buscar </label>
-                        <form action="SearchResults.php" method="post">
-                            <input type="text" id="search" placeholder="Busca ..."
-                                class="w-full rounded-md border-gray-200 py-2.5 px-3 pe-10 shadow-sm sm:text-sm" />
-                            <span class="absolute inset-y-0 end-0 grid w-10 place-content-center">
-                                <button type="submit" class="text-gray-600 hover:text-gray-700">
-                                    <span class="sr-only">Buscar</span>
-                                </button>
-                            </span>
-                        </form>
+                        <?php
+                        include 'Search.php';
+                        ?>
                     </div>
                 </div>
-                <p class="text-gray-500 text-sm mt-2 md:text-left text-center">Bitters chicharrones fanny pack
-                    <br class="lg:block hidden">waistcoat green juice
+                <p class="text-gray-500 text-sm mt-2 md:text-left text-center">Busca cualquier cosa que se ocurra...
                 </p>
             </div>
         </div>

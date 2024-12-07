@@ -1,6 +1,17 @@
 <header class="text-gray-600 body-font bg-gray-100">
-    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+    <div class="container mx-auto flex flex-wrap p-4 flex-col md:flex-row items-center">
         <nav class="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
+            <?php
+            if (!isset($_SESSION['loggedIn'])) { ?>
+                <a href="SignUp.php" class="mr-5 hover:text-gray-900 inline-flex gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"
+                        fill="#9ca3af">
+                        <path
+                            d="M719-392v-122H597v-106h122v-122h106v122h122v106H825v122H719ZM360-492q-76 0-129-53t-53-129q0-76 53-129t129-53q76 0 129 53t53 129q0 76-53 129t-129 53ZM10-99v-143q0-41 19.69-73.85Q49.38-348.71 82-366q66-34 135.91-51t142-17Q432-434 502-417t136 51q32.63 17.29 52.31 50.15Q710-283 710-242v143H10Z" />
+                    </svg>
+                    Registrarse
+                </a>
+            <?php } ?>
             <?php
             if (isset($_SESSION['loggedIn'])) { ?>
                 <a href="Checkout.php" class="mr-5 hover:text-gray-900 inline-flex gap-2">
@@ -14,7 +25,7 @@
             <?php } ?>
             <?php
             if (isset($_SESSION['admin'])) { ?>
-                <a href="Checkout.php" class="mr-5 hover:text-gray-900 inline-flex gap-2">
+                <a href="modifyMovies.php" class="mr-5 hover:text-gray-900 inline-flex gap-2">
                     <svg class="w-5 h-5 mt-0.5" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
                         width="24px" fill="#9ca3af">
                         <path
@@ -44,8 +55,8 @@
                 <a href="logout.php"
                     class="inline-flex items-center bg-red-100 border-0 py-1 px-3 focus:outline-none hover:bg-red-200 rounded text-base mt-4 md:mt-0">Cerrar
                     Sesion
-                    <svg class="w-5 h-5 ml-1 focus:outline-none" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
-                        width="24px" fill="currentColor">
+                    <svg class="w-5 h-5 ml-1 focus:outline-none" xmlns="http://www.w3.org/2000/svg" height="24px"
+                        viewBox="0 -960 960 960" width="24px" fill="currentColor">
                         <path
                             d="M197.83-84.65q-47.21 0-80.19-32.99-32.99-32.98-32.99-80.19v-564.34q0-47.21 32.99-80.19 32.98-32.99 80.19-32.99h227.5q23.34 0 39.96 16.46t16.62 40.01q0 23.55-16.62 40.13-16.62 16.58-39.96 16.58h-227.5v564.34h227.5q23.34 0 39.96 16.63 16.62 16.62 16.62 39.96 0 23.67-16.62 40.13t-39.96 16.46h-227.5Zm458.84-339.52H409.63q-23.67 0-40.13-16.63-16.46-16.62-16.46-39.96 0-23.67 16.46-40.13t40.13-16.46h247.04l-66.97-66.98q-16.96-17.06-16.96-40.56 0-23.5 16.96-40.34 16.95-17.07 40.27-16.95 23.31.11 40.27 17.07l165.72 165.72q16.71 16.96 16.71 39.39t-16.71 39.39L671.24-275.65q-16.96 16.95-40.77 16.95-23.82 0-40.77-17.71-16.96-16.96-16.96-40.39 0-23.44 16.96-40.4l66.97-66.97Z" />
                     </svg>

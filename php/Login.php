@@ -12,7 +12,7 @@
 
 <body>
     <section class="text-gray-400 body-font h-screen"
-        style="background-image: url('../img/background.jpg'); background-size: cover; background-position: center;">
+        style="background-image: url('../img/background_light.jpg'); background-size: cover; background-position: center;">
         <div class="container px-5 py-24 mx-auto flex flex-wrap items-center h-full">
             <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
                 <h1 class="title-font font-medium text-3xl text-white">Bienvenido a 📽️</h1>
