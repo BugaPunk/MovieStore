@@ -25,11 +25,13 @@
                     <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Categorias📹</h1>
                     <div class="h-1 w-20 bg-indigo-500 rounded"></div>
                 </div>
+                <!-- Buscador -->
                 <div class="lg:w-1/2 w-full leading-relaxed">
                     <?php
                     include 'Search.php';
                     ?>
                 </div>
+                <!-- Buscador -->
             </div>
             <div class="flex flex-wrap -m-4 mb-2">
                 <div class="xl:w-1/4 md:w-1/2 p-4">
