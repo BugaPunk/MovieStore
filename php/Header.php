@@ -2,6 +2,7 @@
     <div class="container mx-auto flex flex-wrap p-4 flex-col md:flex-row items-center">
         <nav class="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
             <?php
+            session_start();
             if (!isset($_SESSION['loggedIn'])) { ?>
                 <a href="SignUp.php" class="mr-5 hover:text-gray-900 inline-flex gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"

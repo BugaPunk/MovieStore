@@ -14,92 +14,54 @@ $statement2->closeCursor();
     <title>Movie Page</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../CSS/main.css">
-    <link rel="stylesheet" href="../CSS/movieStyle.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <link rel="shortcut icon" type="image/png" href="../img/favicon.png">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
+<body class="font-ubuntu-sans">
+    <?php include 'Header.php'; ?>
 
-    <div id="header">
-        <a href="Homepage.php">
-            <img src="../img/Blu-raymovies.png" height="70" id="storeName" />
-        </a>
-        <div class="search-container">
-            <form action="SearchResults.php" method="post">
-                <input id="search" type="text" placeholder="Busca por titulo" name="search">
-                <button type="submit">Buscar<i class="fa fa-search"></i></button>
-            </form>
+    <section class="text-gray-600 body-font overflow-hidden">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="lg:w-4/5 mx-auto flex flex-wrap">
+                <img alt="<?php echo htmlspecialchars($movie['name']); ?>"
+                    class="lg:w-1/4 w-1/4 lg:h-1/4 h-1/4 object-cover object-center rounded"
+                    src="../movie_image/<?php echo $movie['ID']; ?>.jpg">
+                <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+                    <h2 class="text-sm title-font text-gray-500 tracking-widest uppercase my-4">
+                        <?php echo htmlspecialchars($movie['director']); ?>
+                    </h2>
+                    <h1 class="text-gray-900 text-3xl title-font font-medium mb-1 my-10">
+                        <?php echo htmlspecialchars($movie['name']); ?>
+                    </h1>
+                    <p class="leading-relaxed font-light my-12">
+                        <?php echo htmlspecialchars($movie['description']); ?>
+                    </p>
+                    <div class="flex">
+                        <span
+                            class="title-font font-medium text-2xl text-gray-900">$<?php echo number_format($movie['price'], 2); ?></span>
+                        <form action="addToCart.php" method="post" class="pl-36">
+                            <input type="hidden" name="product_id" value="<?php echo $movie['ID']; ?>">
+                            <?php if (isset($_SESSION['loggedIn'])) { ?>
+                                <button type="submit"
+                                    class="flex ml-auto text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded">
+                                    Añadir al Carrito
+                                </button>
+                            <?php } else { ?>
+                                <a href="Login.php"
+                                    class="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
+                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" height="24px"
+                                        viewBox="0 -960 960 960" width="24px" fill="currentColor">
+                                        <path
+                                            d="M475-99v-91h295v-580H475v-92h295q37.59 0 64.79 27.21Q862-807.59 862-770v580q0 37.18-27.21 64.09Q807.59-99 770-99H475Zm-74-175-65-63 97-97H99v-91h332l-97-97 65-64 206 207-204 205Z" />
+                                    </svg>
+                                </a>
+                            <?php } ?>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div id="navbar">
-            <ul>
-                <li>
-                    <span class="material-symbols-outlined">
-                        home
-                    </span>
-                    <a href="Homepage.php">Inicio</a>
-                </li>
-                <?php
-                session_start();
-                if (!isset($_SESSION['loggedIn'])) { ?>
-                    <li><a href="Login.php">
-                            <span class="material-symbols-outlined">
-                                person
-                            </span>Iniciar Sesion</a></li>
-                <?php } else { ?>
-                    <li><a href="Checkout.php">
-                            <span class="material-symbols-outlined">
-                                add_shopping_cart
-                            </span>
-                            Carrito</a></li>
-                    <li><a href="logout.php">
-                            <span class="material-symbols-outlined">
-                                logout
-                            </span>
-                            Cerrar</a></li>
-
-                <?php }
-                if (isset($_SESSION['admin'])) {
-                    ?>
-                    <li><a href="modifyMovies.php">
-                            <span class="material-symbols-outlined">
-                                movie_edit
-                            </span>
-                            Modificar Peliculas</a></li>
-                <?php } ?>
-            </ul>
-        </div>
-
-    </div>
-
-    <div class="container">
-        <img src="../movie_image/<?php echo $movie['ID']; ?>.jpg" class="image" alt="<?php echo $movie['name']; ?>"
-            width="350" height="450">
-
-        <div class="content">
-            <h1 class="unbold"><?php echo $movie['name']; ?></h1>
-            <form action="addToCart.php" method="post">
-                <p>Por <?php echo $movie['director']; ?></p>
-                <h1>$<?php echo $movie['price']; ?></h1>
-                <input type="hidden" name="product_id" value="<?php echo $movie['ID']; ?>">
-                <?php
-                if (isset($_SESSION['loggedIn'])) { ?>
-                    <button type="submit">Añadir al carrito</button>
-                <?php } else { ?>
-                    <p><a href="Login.php">Inicie Sesion</a> para comprar.</p>
-                <?php } ?>
-
-                <br><br>
-                <p>
-                    <?php echo $movie['description']; ?>
-                </p>
-        </div>
-
-    </div>
-
+    </section>
 </body>

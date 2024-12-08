@@ -15,7 +15,6 @@
 
 <body class="font-ubuntu-sans">
     <?php
-    session_start();
     include 'header.php';
     ?>
     

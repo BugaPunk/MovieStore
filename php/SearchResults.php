@@ -42,28 +42,61 @@ $statement->closeCursor();
 				</div>
 			</div>
 			<section class="text-gray-600 body-font overflow-hidden">
-				<div class="container px-5 py-24 mx-auto">
+				<div class="container px-5 py-8 mx-auto">
 					<div class="-my-8 divide-y-2 divide-gray-100">
 						<div class="py-8 flex flex-wrap md:flex-nowrap">
-							<div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-								<span class="font-semibold title-font text-gray-700">CATEGORY</span>
-								<span class="mt-1 text-gray-500 text-sm">12 Jun 2019</span>
-							</div>
-							<div class="md:flex-grow">
-								<h2 class="text-2xl font-medium text-gray-900 title-font mb-2">Bitters hashtag waistcoat
-									fashion axe chia unicorn</h2>
-								<p class="leading-relaxed">Glossier echo park pug, church-key sartorial biodiesel
-									vexillologist pop-up snackwave ramps cornhole. Marfa 3 wolf moon party messenger bag
-									selfies, poke vaporware kombucha lumbersexual pork belly polaroid hoodie portland
-									craft beer.</p>
-								<a class="text-blue-500 inline-flex items-center mt-4">Learn More
-									<svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
-										fill="none" stroke-linecap="round" stroke-linejoin="round">
-										<path d="M5 12h14"></path>
-										<path d="M12 5l7 7-7 7"></path>
-									</svg>
-								</a>
-							</div>
+							<article class="flex bg-white transition hover:shadow-xl">
+								<div class="rotate-180 p-2 [writing-mode:_vertical-lr]">
+									<time datetime="2022-10-10"
+										class="flex items-center justify-between gap-4 text-xs font-bold uppercase text-gray-900">
+										<span>2022</span>
+										<span class="w-px flex-1 bg-gray-900/10"></span>
+										<span>Oct 10</span>
+									</time>
+								</div>
+
+								<div class="hidden sm:block sm:basis-56">
+									<?php foreach ($movies as $movie): ?>
+										<a href="MoviePage.php?id=<?php echo $movie['ID']; ?>">
+											<img alt="Imagen de la pelicula"
+												src="../movie_image/<?php echo $movie['ID']; ?>.jpg"
+												class="aspect-square h-full w-full object-cover" />
+										</a>
+									<?php endforeach; ?>
+								</div>
+
+								<div class="flex flex-1 flex-col justify-between">
+									<?php foreach ($movies as $movie): ?>
+										<div class="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
+											<a href="#">
+												<h3 class="font-bold uppercase text-gray-900">
+													<?php echo $movie['name']; ?>
+												</h3>
+											</a>
+
+											<p class="mt-2 line-clamp-3 text-sm/relaxed text-gray-700 font-medium">
+												<?php echo $movie['director']; ?>
+											</p>
+											<p class="mt-2 line-clamp-3 text-sm/relaxed text-gray-700 font-medium">
+												<?php echo $movie['description']; ?>
+											</p>
+											<p class="mt-2 line-clamp-3 text-sm/relaxed text-gray-700 font-normal">
+												<?php echo $movie['price']; ?>$
+											</p>
+										</div>
+									<?php endforeach; ?>
+
+									<div class="sm:flex sm:items-end sm:justify-end">
+										<?php foreach ($movies as $movie): ?>
+											<a href="MoviePage.php?id=<?php echo $movie['ID']; ?>"
+												class="block bg-yellow-300 px-5 py-3 text-center text-xs font-bold uppercase text-gray-900 transition hover:bg-yellow-400">
+												Más Detalles
+											</a>
+										<?php endforeach; ?>
+									</div>
+								</div>
+							</article>
+
 						</div>
 					</div>
 				</div>
