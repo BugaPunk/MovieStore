@@ -23,9 +23,9 @@ $statement->closeCursor();
 	<link rel="shortcut icon" type="image/png" href="../img/favicon.png">
 </head>
 
-<body>
+<body class="font-ubuntu-sans">
 	<?php
-	include 'header.php';
+	include 'Header.php';
 	?>
 	<section class="text-gray-600 body-font">
 		<div class="container px-5 py-24 mx-auto">
@@ -45,7 +45,7 @@ $statement->closeCursor();
 				<div class="container px-5 py-8 mx-auto">
 					<div class="-my-8 divide-y-2 divide-gray-100">
 						<div class="py-8 flex flex-wrap md:flex-nowrap">
-							<article class="flex bg-white transition hover:shadow-xl">
+							<article class="flex bg-gray-100/35 transition hover:shadow-xl">
 								<div class="rotate-180 p-2 [writing-mode:_vertical-lr]">
 									<time datetime="2022-10-10"
 										class="flex items-center justify-between gap-4 text-xs font-bold uppercase text-gray-900">
@@ -103,45 +103,4 @@ $statement->closeCursor();
 			</section>
 		</div>
 	</section>
-
-	<div class="floatContain">
-		<div id="cart">
-			<div class="row">
-
-				<div class="column">
-					<?php foreach ($movies as $movie): ?>
-						<div class="cartItem">
-							<ul id="cartList">
-								<li><a href="MoviePage.php?id=<?php echo $movie['ID']; ?>"><img
-											src="../movie_image/<?php echo $movie['ID']; ?>.jpg" height="180"
-											width="120"></a></li>
-							</ul>
-						</div>
-					<?php endforeach; ?>
-				</div>
-
-				<div class="column">
-					<?php foreach ($movies as $movie): ?>
-						<div class="cartItem">
-							<ul id="movieInfoSearch">
-								<li>
-									<p><i>Titulo:</i> <?php echo $movie['name']; ?></p>
-								</li>
-								<li>
-									<p><i>Director:</i> <?php echo $movie['director']; ?></p>
-								</li>
-								<li>
-									<p><i>Precio:</i> <?php echo $movie['price']; ?></p>
-								</li>
-							</ul>
-						</div>
-					<?php endforeach; ?>
-				</div>
-
-			</div>
-
-		</div>
-
-	</div>
-
 </body>

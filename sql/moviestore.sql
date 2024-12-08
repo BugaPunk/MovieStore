@@ -1,42 +1,11 @@
--- phpMyAdmin SQL Dump
--- version 5.1.0
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Apr 20, 2021 at 12:43 AM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 8.0.3
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `moviestore`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `cart`
---
 
 CREATE TABLE `cart` (
   `email` varchar(255) NOT NULL,
   `ID` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `movies`
---
 
 CREATE TABLE `movies` (
   `category_name` varchar(255) NOT NULL,
@@ -46,10 +15,6 @@ CREATE TABLE `movies` (
   `director` varchar(255) NOT NULL,
   `description` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `movies`
---
 
 INSERT INTO `movies` (`category_name`, `ID`, `name`, `price`, `director`, `description`) VALUES
 ('action', 1, 'Los Vengadores: Endgame', 14.99, 'Anthony y Joe Russo', 'A la deriva en el espacio sin comida ni agua, Tony Stark envía un mensaje a Pepper Potts mientras su suministro de oxígeno comienza a agotarse. Mientras tanto, los Vengadores restantes —Thor, Black Widow, Capitán América y Bruce Banner— deben encontrar una manera de traer de vuelta a sus aliados derrotados para un enfrentamiento épico con Thanos, el malvado semidiós que diezmó el planeta y el universo.'),
@@ -72,13 +37,6 @@ INSERT INTO `movies` (`category_name`, `ID`, `name`, `price`, `director`, `descr
 ('comedy', 40, 'La Familia del Futuro', 7.12, 'Stephen John Anderson', 'El joven genio Lewis pierde la esperanza de recuperar su invento robado, hasta que Wilbur Robinson, un viajero del tiempo, lo lleva al futuro para conocer a su excéntrica familia y revelar un gran secreto.'),
 ('action', 41, 'Divergente', 1.11, 'Neil Burger', 'Tris Prior vive en un mundo donde la sociedad está dividida en cinco facciones. Al llegar a la adultez, cada persona debe elegir una facción para siempre. Tris elige Osadía, pero descubre que es Divergente y no encaja en una sola facción. Pronto se ve envuelta en una guerra que amenaza a todos los que ama.');
 
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user`
---
-
 CREATE TABLE `user` (
   `full_name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -95,40 +53,15 @@ CREATE TABLE `user` (
   `admin` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `user`
---
-
 INSERT INTO `user` (`full_name`, `email`, `password`, `phone`, `address`, `state`, `city`, `zip`, `card_num`, `name_on_card`, `exp_date`, `sec_code`, `admin`) VALUES
 ('admin account', 'admin@admin.com', 'password', '3213212312', '21321d12', '3e123', 'rwarwa', '32123', '1232421232125312', 'rwafawfwa', '92/21', '321', 1);
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `movies`
---
 ALTER TABLE `movies`
   ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `user`
---
+  
 ALTER TABLE `user`
   ADD PRIMARY KEY (`email`);
 
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `movies`
---
 ALTER TABLE `movies`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
